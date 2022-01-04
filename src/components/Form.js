@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Form = () => {
+const Form = ({addTask}) => {
     const [ userInput, setUserInput ] = useState('');
     const handleChange = (e) => {
         setUserInput(e.currentTarget.value);
@@ -11,11 +11,12 @@ const Form = () => {
             addTask(userInput);
             setUserInput("");   
     }
-
-    <form>
+    return (
+    <form  onSubmit={handleSubmit}>
     <input type="text" value={userInput} onChange={handleChange} placeholder="Enter task..." /> 
     <button> Agregar </button>
     </form>
+    );
 };
 
 export default Form;
